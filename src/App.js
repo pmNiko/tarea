@@ -1,14 +1,94 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
+import Chart from 'chart.js';
 
-const styleColumn1 = {
-  background: 'green'
-}
-const styleColumn2 = {
-  background: 'violet'
-}
+
+
+
 
 function App() {
+  const cr = React.createRef();
+  const cr2 = React.createRef();
+
+  useEffect(() => {
+
+    const ctx = cr.current.getContext("2d");
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Phyton', 'Ruby', 'JavaScript', 'Java', 'Smalltalk', 'Json'],
+            datasets: [{
+                label: 'Habilidades User 1',
+                data: [10, 60, 30, 50, 45, 17],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    const ctx2 = cr2.current.getContext("2d");
+    var myChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Phyton', 'Ruby', 'JavaScript', 'Java', 'Smalltalk', 'Json'],
+            datasets: [{
+                label: 'Habilidades user 2',
+                data: [30, 10, 40, 90, 15, 72],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+  }, []);
+  
   return (
     <>
 
@@ -57,13 +137,151 @@ function App() {
 
       </nav>
  
-      <div className="row justify-content-center">
-          <div className="col-12 mr-4" style={styleColumn1}>.col-3</div>
-          <div className="col-12 mr-4" style={styleColumn2}>.col-3</div>
+      
+      
+      <section className="team-section text-center my-5">
+
+        
+        <h2 className="h1-responsive font-weight-bold my-5">Our amazing team</h2>
+        
+        <p className="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
+          eum porro a pariatur veniam.</p>
+
+        
+        <div className="row">
+
+          
+          <div className="col-lg-3 col-md-6 mb-lg-0 mb-5">
+            <div className="avatar mx-auto">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" className="rounded-circle z-depth-1"
+                alt="Sample avatar" />
+            </div>
+            <h5 className="font-weight-bold mt-4 mb-3">Anna Williams</h5>
+            <p className="text-uppercase blue-text"><strong>Graphic designer</strong></p>
+            <p className="grey-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci sed quia non numquam modi tempora eius.</p>
+            <ul className="list-unstyled mb-0">
+              
+              <a className="p-2 fa-lg fb-ic">
+                <i className="fab fa-facebook-f blue-text"> </i>
+              </a>
+              
+              <a className="p-2 fa-lg tw-ic">
+                <i className="fab fa-twitter blue-text"> </i>
+              </a>
+              
+              <a className="p-2 fa-lg ins-ic">
+                <i className="fab fa-instagram blue-text"> </i>
+              </a>
+            </ul>
+          </div>
+          
+          <div className="col-lg-3 col-md-6 mb-lg-0 mb-5">
+            <div className="avatar mx-auto">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle z-depth-1"
+                alt="Sample avatar" />
+            </div>
+            <h5 className="font-weight-bold mt-4 mb-3">John Doe</h5>
+            <p className="text-uppercase blue-text"><strong>Web developer</strong></p>
+            <p className="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium
+              doloremque rem laudantium totam aperiam.</p>
+            <ul className="list-unstyled mb-0">
+              
+              <a className="p-2 fa-lg fb-ic">
+                <i className="fab fa-facebook-f blue-text"> </i>
+              </a>
+              
+              <a className="p-2 fa-lg ins-ic">
+                <i className="fab fa-instagram blue-text"> </i>
+              </a>
+            </ul>
+          </div>
+        
+          <div className="col-lg-3 col-md-6 mb-md-0 mb-5">
+            <div className="avatar mx-auto">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" className="rounded-circle z-depth-1"
+                alt="Sample avatar" />
+            </div>
+            <h5 className="font-weight-bold mt-4 mb-3">Maria Smith</h5>
+            <p className="text-uppercase blue-text"><strong>Photographer</strong></p>
+            <p className="grey-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim est fugiat nulla id eu laborum.</p>
+            <ul className="list-unstyled mb-0">
+              
+              <a className="p-2 fa-lg fb-ic">
+                <i className="fab fa-facebook-f blue-text"> </i>
+              </a>
+              
+              <a className="p-2 fa-lg ins-ic">
+                <i className="fab fa-instagram blue-text"> </i>
+              </a>
+              
+              <a className="p-2 fa-lg ins-ic">
+                <i className="fab fa-dribbble blue-text"> </i>
+              </a>
+            </ul>
+          </div>
+        
+          <div className="col-lg-3 col-md-6">
+            <div className="avatar mx-auto">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="rounded-circle z-depth-1"
+                alt="Sample avatar"/>
+            </div>
+            <h5 className="font-weight-bold mt-4 mb-3">Tom Adams</h5>
+            <p className="text-uppercase blue-text"><strong>Backend developer</strong></p>
+            <p className="grey-text">Perspiciatis repellendus ad odit consequuntur, eveniet earum nisi qui consectetur
+              totam officia voluptates perferendis voluptatibus aut.</p>
+            <ul className="list-unstyled mb-0">
+              
+              <a className="p-2 fa-lg fb-ic">
+                <i className="fab fa-facebook-f blue-text"> </i>
+              </a>
+              
+              <a className="p-2 fa-lg ins-ic">
+                <i className="fab fa-github blue-text"> </i>
+              </a>
+            </ul>
+          </div>
+        
+
+        </div>
+      
+
+      </section>
+
+      <nav aria-label="Page navigation example">
+        <ul className="pagination pg-blue justify-content-center">
+          <li className="page-item disabled">
+            <a className="page-link" tabindex="-1">Previous</a>
+          </li>
+          <li className="page-item"><a className="page-link">1</a></li>
+          <li className="page-item"><a className="page-link">2</a></li>
+          <li className="page-item"><a className="page-link">3</a></li>
+          <li className="page-item">
+            <a className="page-link">Next</a>
+          </li>
+        </ul>
+      </nav>
+      <hr/><hr/>
+
+
+      <div className="card info-color text-white">
+        <div className="card-body text-center">
+          Gráfico de lenguajes
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-6">
+          <canvas ref={cr} width="100%" height="50%"></canvas>
+        </div>
+        <div className="col-6">
+          <canvas ref={cr2} width="100%" height="50%"></canvas>
+        </div>
       </div>
 
        
-      <footer className="page-footer font-small blue pt-4 fixed-bottom">
+      <footer className="page-footer font-small cyan darken-3 pt-4">
 
       
         <div className="container-fluid text-center text-md-left">
